@@ -1,3 +1,9 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[1]:
+
+
 # Import Libraries
 from splinter import Browser
 from bs4 import BeautifulSoup as bs
@@ -6,7 +12,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 import pandas as pd
 
 def scrape():
-    results_list=[]
+    results_list = []
     
     # Scrape data from the 'Red Planet Science' website
     executable_path = {'executable_path': ChromeDriverManager().install()}
@@ -66,4 +72,3 @@ def scrape():
     results_list.append(hemisphere_image_urls)
     
     return results_list
-
