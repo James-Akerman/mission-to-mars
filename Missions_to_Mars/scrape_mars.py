@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 # Import Libraries
 from splinter import Browser
 from bs4 import BeautifulSoup as bs
@@ -12,7 +6,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 import pandas as pd
 
 def scrape():
-    results_list = []
+    results_dictionary = {}
     
     # Scrape data from the 'Red Planet Science' website
     executable_path = {'executable_path': ChromeDriverManager().install()}
@@ -25,8 +19,8 @@ def scrape():
     news_title = soup.find('div', class_='content_title').get_text()
     news_p = soup.find('div', class_='article_teaser_body').get_text()
     browser.quit()
-    #Append result to results list
-    results_list.append([news_title,news_p])
+    #Add result to results dictionary
+    results_dictionary["Most_Recent_News"] = {"title":news_title, "paragraph":news_p}
     
     # Scrape data from the 'Space Images Mars' website
     executable_path = {'executable_path': ChromeDriverManager().install()}
@@ -39,17 +33,25 @@ def scrape():
     featured_image = soup.find('img', class_='headerimage fade-in')
     featured_image_url = url + featured_image['src']
     browser.quit()
-    #Append result to results list
-    results_list.append(featured_image_url)
+    #Add result to results dictionary
+    results_dictionary['Featured_Image_URL'] = featured_image_url
     
     # Scrape data from the 'Galaxy Facts Mars' website
     url = 'https://galaxyfacts-mars.com/'
     tables = pd.read_html(url)
     planet_profile_table = tables[0]
-    planet_profile_table = planet_profile_table.rename(columns={0:"Mars",1:"Earth"})
+    # Rename columns
+    planet_profile_table.columns = ['Description','Mars','Earth']
+    # Reset index
+    planet_profile_table = planet_profile_table.set_index('Description')
+    # Convert DataFrame to String
     planet_profile_table_html_string = planet_profile_table.to_html()
-    #Append result to results list
-    results_list.append(planet_profile_table_html_string)
+    # Clean the string
+    planet_profile_table_html_string = planet_profile_table_html_string.replace('\n', '')
+    # Add Boostrap to the table
+    planet_profile_table_html_string = planet_profile_table_html_string.replace( "dataframe", "table table-striped" )
+    #Add result to results dictionary
+    results_dictionary['Planet_Profile_Table_HTML_String'] = planet_profile_table_html_string
     
     # Scrape data from the 'Mars Hemispheres' website
     executable_path = {'executable_path': ChromeDriverManager().install()}
@@ -68,7 +70,7 @@ def scrape():
         hemisphere_image_url = url + hemisphere_image_src
         hemisphere_title = hemisphere.find('h3').get_text()
         hemisphere_image_urls.append({'title':hemisphere_title, 'image_url':hemisphere_image_url})
-    #Append result to results list
-    results_list.append(hemisphere_image_urls)
+    #Add result to results dictionary
+    results_dictionary['Hemisphere_Image_URLs'] = hemisphere_image_urls
     
-    return results_list
+    return results_dictionary
