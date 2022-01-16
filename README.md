@@ -1,4 +1,6 @@
 # Missions to Mars
+
+## Overview of the Project
 A web application that scrapes various websites for data related to the Mission to Mars then displays the information in a single HTML page from a MongoDB database.
 
 **Before Scraping**
