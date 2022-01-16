@@ -2,10 +2,10 @@
 A web application that scrapes various websites for data related to the Mission to Mars then displays the information in a single HTML page from a MongoDB database.
 
 **Before Scraping**
-![before scraping](Missions_to_Mars/final-application-screenshots/landing_page.png)
+![before scraping](Missions_to_Mars/final-application-screenshots/landing_page.PNG)
 
 **After Scraping**
-![after scraping](Missions_to_Mars/final-application-screenshots/after_scraping.png)
+![after scraping](Missions_to_Mars/final-application-screenshots/after_scraping.PNG)
 
 <br>
 
