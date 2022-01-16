@@ -1,7 +1,15 @@
-# web-scraping-challenge
+# Mission to Mars
+A web application that scrapes various websites for data related to the Mission to Mar then displays the information in a single HTML page from a MongoDB database.
 
-### Background
-In this Monash University Data Analytics/Trilogy Education Services homework assignment, I built a web application that scrapes various websites for data related to the Mission to Mars and displays the information in a single HTML page.
+## Tools/Packages used
+- Python
+  - Pandas
+  - Flask
+  - Jinja
+- HTML
+
+## How to use
+1) Download the repository
 
 ### Contents
 #### This directory contains directory called ***Mission_to_Mars*** which contains the following files and documents:
