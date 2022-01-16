@@ -1,20 +1,27 @@
 # Mission to Mars
 A web application that scrapes various websites for data related to the Mission to Mars then displays the information in a single HTML page from a MongoDB database.
 
+**Before Scraping**
+![before scraping](Missions_to_Mars/final-application-screenshots/landing_page)
+
+**After Scraping**
+![after scraping](Missions_to_Mars/final-application-screenshots/after_scraping)
+
+<br>
+
 ## Tools/Packages used
 - Python
   - Pandas
   - Flask
+  - PyMongo
   - Jinja
+  - splinter
 - HTML
+- MongoDB
+
+<br>
 
 ## How to use
-1) Download the repository
-2) 
-
-### Contents
-#### This directory contains directory called ***Mission_to_Mars*** which contains the following files and documents:
-1. A Jupyter Notebook containing the scraping code used for this assignment called ***mission_to_mars.ipynb***.
-2. A Flask app called ***app.py*** for rendering the ***index.html*** file in the ***template*** folder.
-3. A seperate ***scrape.py*** file containing the web scraping function used in the app.
-4. A folder called ***final application screenshots*** containing screenshots of the rendered application before and after webscraping.
+1) Download the repository.
+2) Open the Missions_to_Mars folder.
+3) Open Git Bash and type `python app.py` then go your url of your localhost, usually `http://localhost:8000/`.
