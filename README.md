@@ -1,5 +1,5 @@
 # Mission to Mars
-A web application that scrapes various websites for data related to the Mission to Mar then displays the information in a single HTML page from a MongoDB database.
+A web application that scrapes various websites for data related to the Mission to Mars then displays the information in a single HTML page from a MongoDB database.
 
 ## Tools/Packages used
 - Python
@@ -10,6 +10,7 @@ A web application that scrapes various websites for data related to the Mission 
 
 ## How to use
 1) Download the repository
+2) 
 
 ### Contents
 #### This directory contains directory called ***Mission_to_Mars*** which contains the following files and documents:
